@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .upload-btn {
+            background: blue;
+            color: white;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            margin: 10% auto;
+            width: 40%;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .img-preview {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Student Records</h2>
+    <table id="studentTable">
+        <tr>
+            <th>Serial No</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Profile</th>
+            <th>Upload Image</th>
+            <th>Uploaded Image</th>
+        </tr>
+    </table>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h3>Upload Image</h3>
+            <input type="file" id="fileInput" accept="image/jpeg">
+            <br><br>
+            <button onclick="uploadImage()">Upload</button>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        let students = [
+            { name: "John Doe", address: "Street 12, NY", phone: "123-456-7890", profile: "#" },
+            { name: "Emily Clark", address: "Street 5, LA", phone: "987-654-3210", profile: "#" }
+        ];
+
+        function populateTable() {
+            let table = document.getElementById("studentTable");
+            students.forEach((student, i) => {
+                let row = table.insertRow();
+                row.innerHTML = `
+                    <td>${i + 1}</td>
+                    <td>${student.name}</td>
+                    <td>${student.address}</td>
+                    <td>${student.phone}</td>
+                    <td><a href="${student.profile}" target="_blank">Profile</a></td>
+                    <td><button class="upload-btn" onclick="openModal(${i})">Upload</button></td>
+                    <td id="img-${i}"></td>
+                `;
+            });
+        }
+
+        let selectedIndex = null;
+
+        function openModal(index) {
+            selectedIndex = index;
+            document.getElementById("modal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        function uploadImage() {
+            let file = document.getElementById("fileInput").files[0];
+            if (file && file.type === "image/jpeg") {
+                let reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById(`img-${selectedIndex}`).innerHTML = `<img src="${e.target.result}" class="img-preview">`;
+                };
+                reader.readAsDataURL(file);
+                closeModal();
+            } else {
+                alert("Only JPEG images are allowed.");
+            }
+        }
+
+        populateTable();
+    </script>
+
+</body>
+
+</html>

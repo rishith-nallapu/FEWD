@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Submission</title>
+    <style>
+        form {
+            margin: 10px auto;
+            padding: 20px;
+            border: 1px solid black;
+            width: 300px;
+            text-align: center;
+        }
+
+        input {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 90%;
+        }
+
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>GET Method Form</h2>
+    <form action="action.php" method="GET">
+        <label>Name:</label>
+        <input type="text" name="name" required><br>
+        <label>Password:</label>
+        <input type="password" name="password" required><br>
+        <button type="submit">Submit (GET)</button>
+    </form>
+
+    <h2>POST Method Form</h2>
+    <form action="action.php" method="POST">
+        <label>Name:</label>
+        <input type="text" name="name" required><br>
+        <label>Password:</label>
+        <input type="password" name="password" required><br>
+        <button type="submit">Submit (POST)</button>
+    </form>
+
+</body>
+
+</html>
