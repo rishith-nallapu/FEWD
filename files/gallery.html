@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eCommerce Gallery</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        .filter-buttons {
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            width: 250px;
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 10px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .price {
+            color: green;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .view-details {
+            background: #007bff;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .view-details:hover {
+            background: #0056b3;
+        }
+
+        /* Lightbox Styling */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+        }
+
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .gallery-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+
+    <h1>eCommerce Product Gallery</h1>
+
+    <div class="filter-buttons">
+        <button onclick="filterImages('all')">Show All</button>
+        <button onclick="filterImages('electronics')">Electronics</button>
+        <button onclick="filterImages('fashion')">Fashion</button>
+    </div>
+
+    <div class="gallery">
+        <div class="gallery-item electronics">
+            <img src="/images/71DozMyPCBL.jpg" alt="Laptop">
+            <div class="product-info">
+                <div class="product-name">High-End Laptop</div>
+                <div class="price">1200</div>
+                <a href="#" class="view-details">View Details</a>
+            </div>
+        </div>
+        <div class="gallery-item fashion">
+            <img src="/images/images.jpeg" alt="Shoes">
+            <div class="product-info">
+                <div class="product-name">Stylish Sneakers</div>
+                <div class="price">750</div>
+                <a href="#" class="view-details">View Details</a>
+            </div>
+        </div>
+        <div class="gallery-item electronics">
+            <img src="/images/SonyWH-ULT900NULTWEARActiveNoise-CancelingWirelessHeadphonesblack01.webp" alt="Headphones">
+            <div class="product-info">
+                <div class="product-name">Wireless Headphones</div>
+                <div class="price">1500</div>
+                <a href="#" class="view-details">View Details</a>
+            </div>
+        </div>
+        <div class="gallery-item fashion">
+            <img src="/images/71E7c09iTdL._AC_UY1100_.jpg" alt="Jacket">
+            <div class="product-info">
+                <div class="product-name">Leather Jacket</div>
+                <div class="price">$90</div>
+                <a href="#" class="view-details">View Details</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged Image">
+    </div>
+
+    <script>
+        function filterImages(category) {
+            let items = document.querySelectorAll('.gallery-item');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+
+        // Lightbox Functionality
+        let lightbox = document.getElementById("lightbox");
+        let lightboxImg = document.getElementById("lightbox-img");
+
+        document.querySelectorAll(".gallery-item img").forEach(img => {
+            img.addEventListener("click", function () {
+                lightbox.style.display = "flex";
+                lightboxImg.src = this.src;
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

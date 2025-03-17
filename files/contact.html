@@ -1,3 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Products - E-Commerce</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .content-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centers vertically */
+            align-items: center; 
+            text-align: center;
+        }
+
+        footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">ShoppersStop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="partners.html">Partners</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <div class="container my-5">
     <h2 class="text-center">Contact Us</h2>
     <form>
@@ -16,3 +75,89 @@
         <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
 </div>
+
+
+
+
+
+<div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-dark text-white mt-5">
+    <div class="container py-4">
+        <div class="row">
+            <!-- Column 1 -->
+            <div class="col-md-3">
+                <h5>Get to Know Us</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white text-decoration-none">About Us</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Careers</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Press Releases</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="col-md-3">
+                <h5>Connect with Us</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white text-decoration-none">Facebook</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Twitter</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Instagram</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="col-md-3">
+                <h5>Make Money with Us</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white text-decoration-none">Sell on ShopNow</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Affiliate Program</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Advertise Your Products</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4 -->
+            <div class="col-md-3">
+                <h5>Let Us Help You</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white text-decoration-none">Your Account</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Returns Centre</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="bg-secondary text-center py-2">
+        <p class="mb-0">&copy; 2025 ShopNow. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+
